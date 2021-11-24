@@ -1,0 +1,54 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3  ~ Copyright 2018-present KunMinX
+4  ~
+5  ~ Licensed under the Apache License, Version 2.0 (the "License");
+6  ~ you may not use this file except in compliance with the License.
+7  ~ You may obtain a copy of the License at
+8  ~
+9  ~    http://www.apache.org/licenses/LICENSE-2.0
+10  ~
+11  ~ Unless required by applicable law or agreed to in writing, software
+12  ~ distributed under the License is distributed on an "AS IS" BASIS,
+13  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14  ~ See the License for the specific language governing permissions and
+15  ~ limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.kunminx.architecture" >
+19
+20    <uses-sdk
+21        android:minSdkVersion="23"
+21-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml
+22        android:targetSdkVersion="31" />
+22-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml
+23
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+24-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:20:5-79
+24-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:20:22-76
+25    <uses-permission android:name="android.permission.INTERNET" />
+25-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:21:5-67
+25-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:21:22-64
+26
+27    <application>
+27-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:23:5-35:19
+28        <provider
+28-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:25:9-33:20
+29            android:name="androidx.core.content.FileProvider"
+29-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:26:13-62
+30            android:authorities="${applicationId}.fileprovider"
+30-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:27:13-64
+31            android:exported="false"
+31-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:28:13-37
+32            android:grantUriPermissions="true" >
+32-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:29:13-47
+33            <meta-data
+33-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:30:13-32:54
+34                android:name="android.support.FILE_PROVIDER_PATHS"
+34-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:31:17-67
+35                android:resource="@xml/file_paths" />
+35-->/Library/AndroidProject/YqFrameDemo/CommonMvvm/src/main/AndroidManifest.xml:32:17-51
+36        </provider>
+37    </application>
+38
+39</manifest>

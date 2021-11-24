@@ -1,0 +1,5 @@
+R_DEF: Internal format may change without notice
+local
+string app_name
+string network_not_good
+xml file_paths

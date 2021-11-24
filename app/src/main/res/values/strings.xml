@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">YqFrameDemo</string>
+    <string name="network_state_retry">网络状态不佳，请重试</string>
+    <string name="username_or_pwd_incomplete">用户名或密码不完整</string>
+    <string name="login_text">登录中。。。</string>
+</resources>
