@@ -18,11 +18,13 @@ package com.yqkj.yqframedemo.data.repository;
 
 import android.util.Log;
 
+import com.kunminx.architecture.data.repository.CommonListResponse;
+import com.kunminx.architecture.data.repository.CommonResponse;
+import com.kunminx.architecture.data.repository.CommonRetrofit;
 import com.kunminx.architecture.data.response.DataResult;
 import com.kunminx.architecture.data.response.ResponseStatus;
 import com.kunminx.architecture.data.response.ResultSource;
 import com.kunminx.architecture.utils.SPUtils;
-import com.yqkj.yqframedemo.data.api.APIs;
 import com.yqkj.yqframedemo.data.api.UrlPramsService;
 import com.yqkj.yqframedemo.data.bean.DownloadFile;
 import com.yqkj.yqframedemo.data.bean.HttpUrl;
@@ -38,66 +40,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Create by oyd at 2021/11/22
  */
 public class DataRepository {
-
     private static final DataRepository S_REQUEST_MANAGER = new DataRepository();
-
+    private final Retrofit retrofit;
     private DataRepository() {
+        retrofit = CommonRetrofit.getInstance().getRetrofit();
     }
 
     public static DataRepository getInstance() {
+
         return S_REQUEST_MANAGER;
     }
 
-    private final Retrofit retrofit;
 
-    {
-//        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-//        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-//        OkHttpClient client = new OkHttpClient.Builder()
-//            .connectTimeout(8, TimeUnit.SECONDS)
-//            .readTimeout(8, TimeUnit.SECONDS)
-//            .writeTimeout(8, TimeUnit.SECONDS)
-//            .addInterceptor(logging)
-//            .build();
-        OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder();
-        //debug模式添加log信息拦截
-        if (Logger.isEnabled()) {
-            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            okHttpBuilder.addInterceptor(interceptor);
-        }
-
-        okHttpBuilder.addInterceptor(new ParamsInterceptor());
-//        okHttpBuilder.addNetworkInterceptor(new StethoInterceptor());
-        // 设置网络连接失败时自动重试
-        okHttpBuilder.retryOnConnectionFailure(true);
-        // 设置连接超时
-        okHttpBuilder.connectTimeout(5, TimeUnit.SECONDS);
-        // 设置写超时
-        okHttpBuilder.writeTimeout(20, TimeUnit.SECONDS);
-        // 设置读超时
-        okHttpBuilder.readTimeout(10, TimeUnit.SECONDS);
-
-        String baseUrl = SPUtils.getInstance().getString("wfwUrl",APIs.HEAD_BASE_URL);
-
-        retrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(okHttpBuilder.build())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-    }
 
     /**
      * TODO: 建议在 DataRepository 使用 DataResult 而非 LiveData 来返回结果：

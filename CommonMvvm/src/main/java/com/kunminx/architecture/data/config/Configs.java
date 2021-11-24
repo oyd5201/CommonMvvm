@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.yqkj.yqframedemo.data.config;
+package com.kunminx.architecture.data.config;
 
 import android.os.Environment;
-import android.text.TextUtils;
 
 import com.kunminx.architecture.utils.SPUtils;
 import com.kunminx.architecture.utils.Utils;

@@ -1,4 +1,4 @@
-package com.yqkj.yqframedemo.data.repository;
+package com.kunminx.architecture.data.repository;
 
 import java.util.List;
 

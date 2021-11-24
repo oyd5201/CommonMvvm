@@ -21,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.kunminx.architecture.data.repository.CommonListResponse;
+import com.kunminx.architecture.data.repository.CommonResponse;
 import com.kunminx.architecture.data.response.DataResult;
 import com.kunminx.architecture.domain.request.BaseRequest;
 import com.kunminx.architecture.ui.callback.ProtectedUnPeekLiveData;
@@ -29,13 +31,10 @@ import com.yqkj.yqframedemo.data.bean.HttpUrl;
 import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
 import com.yqkj.yqframedemo.data.bean.User;
-import com.yqkj.yqframedemo.data.repository.CommonListResponse;
-import com.yqkj.yqframedemo.data.repository.CommonResponse;
 import com.yqkj.yqframedemo.data.repository.DataRepository;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.Map;
 
 /**

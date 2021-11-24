@@ -1,4 +1,4 @@
-package com.yqkj.yqframedemo.data.api;
+package com.kunminx.architecture.data.api;
 
 /**
  * 根据公司自己的域名地址进行配置，下面是一个测试域名地址

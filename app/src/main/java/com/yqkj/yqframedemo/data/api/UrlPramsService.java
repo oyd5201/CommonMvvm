@@ -1,12 +1,10 @@
 package com.yqkj.yqframedemo.data.api;
 
+import com.kunminx.architecture.data.repository.CommonListResponse;
+import com.kunminx.architecture.data.repository.CommonResponse;
 import com.yqkj.yqframedemo.data.bean.HttpUrl;
 import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
-import com.yqkj.yqframedemo.data.repository.CommonListResponse;
-import com.yqkj.yqframedemo.data.repository.CommonResponse;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

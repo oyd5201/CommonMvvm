@@ -1,8 +1,7 @@
 package com.yqkj.yqframedemo.domain.usecase;
 
+import com.kunminx.architecture.data.config.Configs;
 import com.kunminx.architecture.domain.usecase.UseCase;
-import com.yqkj.yqframedemo.data.config.Configs;
-
 
 import java.io.File;
 import java.io.FileOutputStream;

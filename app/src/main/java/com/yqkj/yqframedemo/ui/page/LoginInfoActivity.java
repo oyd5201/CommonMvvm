@@ -21,7 +21,7 @@ import com.yqkj.yqframedemo.R;
 import com.yqkj.yqframedemo.data.bean.HttpUrl;
 import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.User;
-import com.yqkj.yqframedemo.data.config.Configs;
+
 import com.yqkj.yqframedemo.domain.message.DrawerCoordinateManager;
 import com.yqkj.yqframedemo.ui.model.LoginViewModel;
 

@@ -1,6 +1,6 @@
-package com.yqkj.yqframedemo.data.repository;
+package com.kunminx.architecture.data.repository;
 
-import static com.yqkj.yqframedemo.data.config.Configs.getRequestParams;
+import static com.kunminx.architecture.data.config.Configs.getRequestParams;
 
 import com.kunminx.architecture.utils.SignUtils;
 
@@ -13,6 +13,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
+
 
 /**
  * Create by oyd at 2021/11/22

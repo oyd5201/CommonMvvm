@@ -1,47 +1,30 @@
 package com.yqkj.yqframedemo.ui.page;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.kunminx.architecture.ui.page.BaseActivity;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
-import com.kunminx.architecture.utils.BarUtils;
 import com.kunminx.architecture.utils.SPUtils;
-import com.kunminx.architecture.utils.ToastUtils;
-import com.kunminx.architecture.utils.Utils;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.constant.SpinnerStyle;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.yqkj.yqframedemo.BR;
 import com.yqkj.yqframedemo.R;
-import com.yqkj.yqframedemo.data.bean.HttpUrl;
-import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
-import com.yqkj.yqframedemo.data.bean.User;
-import com.yqkj.yqframedemo.data.repository.CommonListResponse;
 import com.yqkj.yqframedemo.databinding.ActivityListBinding;
-import com.yqkj.yqframedemo.ui.model.LoginViewModel;
 import com.yqkj.yqframedemo.ui.model.MzZcListViewModel;
 import com.yqkj.yqframedemo.ui.page.adapter.ListAdapter;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.crypto.MacSpi;
 
 public class ListActivity extends BaseActivity {
 

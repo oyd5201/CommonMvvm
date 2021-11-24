@@ -62,11 +62,6 @@ dependencies {
 
     implementation "com.google.code.gson:gson:2.8.9"
 
-    //网络框架
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
 
     //下拉刷新
     implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
