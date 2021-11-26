@@ -15,7 +15,8 @@
  */
 
 apply plugin: "com.android.library"
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 android {
     compileSdk appTargetSdk
     defaultConfig {
@@ -54,5 +55,6 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     api "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     api "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    api 'com.tencent:mmkv-static:1.2.7'
 
 }

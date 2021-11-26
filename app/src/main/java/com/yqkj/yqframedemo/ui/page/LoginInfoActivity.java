@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.kunminx.architecture.ui.page.BaseActivity;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
 import com.kunminx.architecture.utils.BarUtils;
+import com.kunminx.architecture.utils.KvSpUtil;
 import com.kunminx.architecture.utils.SPUtils;
 import com.kunminx.architecture.utils.ToastUtils;
 import com.yqkj.yqframedemo.BR;
@@ -90,15 +91,12 @@ public class LoginInfoActivity extends BaseActivity {
             LoginUserBean loginUserBean = dataResult.getResult().data;
 
 
-            SPUtils.getInstance().put("token", loginUserBean.getUser().getToken());//TOKEN
-            SPUtils.getInstance().put( "id", loginUserBean.getUser().getId());// 用户资料id
+            KvSpUtil.INSTANCE.encode("token", loginUserBean.getUser().getToken());//TOKEN
+            KvSpUtil.INSTANCE.encode( "id", loginUserBean.getUser().getId());// 用户资料id
             if (loginUserBean.getOrganizations().size() > 0) {
 
                 //企业ID
-                SPUtils.getInstance().put("jydId", loginUserBean.getOrganizations().get(0).getId() + "");// 经营点id
-
-                SPUtils.getInstance().put("cityName", loginUserBean.getOrganizations().get(0).getCityName());
-
+                KvSpUtil.INSTANCE.encode("jydId", loginUserBean.getOrganizations().get(0).getId() + "");// 经营点id
             } else {
                 ToastUtils.showShortToast(this, "尚未关联相关企业");
                 return;

@@ -18,6 +18,7 @@ package com.kunminx.architecture.data.config;
 
 import android.os.Environment;
 
+import com.kunminx.architecture.utils.KvSpUtil;
 import com.kunminx.architecture.utils.SPUtils;
 import com.kunminx.architecture.utils.Utils;
 
@@ -53,8 +54,8 @@ public class Configs {
         return new HashMap<String, String>() {{
             //可以在这里配置公共参数
             if(!url.toString().contains("userLogin/loginGetUrlByLoginName")&&!url.toString().contains("systemUser/login/blockCy")) {
-                put("token", SPUtils.getInstance().getString("token", ""));
-                put("userId", String.valueOf(SPUtils.getInstance().getInt("id", -1)));
+                put("token",  KvSpUtil.INSTANCE.decodeString("token", ""));
+                put("userId", KvSpUtil.INSTANCE.decodeInt("id")+"");
             }
         }};
     }

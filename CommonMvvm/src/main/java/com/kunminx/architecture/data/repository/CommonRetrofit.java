@@ -17,6 +17,7 @@
 package com.kunminx.architecture.data.repository;
 
 import com.kunminx.architecture.data.api.APIs;
+import com.kunminx.architecture.utils.KvSpUtil;
 import com.kunminx.architecture.utils.SPUtils;
 
 
@@ -62,7 +63,7 @@ public class CommonRetrofit {
         // 设置读超时
         okHttpBuilder.readTimeout(10, TimeUnit.SECONDS);
 
-        String baseUrl = SPUtils.getInstance().getString("wfwUrl", APIs.HEAD_BASE_URL);
+        String baseUrl =  KvSpUtil.INSTANCE.decodeString("wfwUrl", APIs.HEAD_BASE_URL);
 
         Retrofit retrofit  = new Retrofit.Builder()
                 .baseUrl(baseUrl)

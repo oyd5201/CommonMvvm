@@ -24,6 +24,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.tencent.mmkv.MMKV;
+
 /**
  * Create by oyd at 2021/11/22
  */
@@ -34,7 +36,7 @@ public class BaseApplication extends Application implements ViewModelStoreOwner 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        MMKV.initialize(this);
         mAppViewModelStore = new ViewModelStore();
     }
 

@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -16,12 +18,12 @@ android {
         debug {
             applicationIdSuffix ".debug"
             manifestPlaceholders = [
-                    APP_NAME      : "@string/app_name_debug",
+                    APP_NAME: "@string/app_name_debug",
             ]
         }
         release {
             manifestPlaceholders = [
-                    APP_NAME      : "@string/app_name",
+                    APP_NAME: "@string/app_name",
             ]
             minifyEnabled true
             shrinkResources true

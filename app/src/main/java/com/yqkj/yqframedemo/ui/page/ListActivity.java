@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.kunminx.architecture.ui.page.BaseActivity;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
+import com.kunminx.architecture.utils.KvSpUtil;
 import com.kunminx.architecture.utils.SPUtils;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
@@ -120,7 +121,7 @@ public class ListActivity extends BaseActivity {
 
     private void getTzList(){
         Map<String ,String> map = new HashMap<>();
-        map.put("organizationId",SPUtils.getInstance().getString("jydId"));
+        map.put("organizationId", KvSpUtil.INSTANCE.decodeString("jydId",""));
         map.put("year","2021");
         map.put("month","04");
         map.put("page",page+"");
