@@ -123,9 +123,8 @@ public class ListActivity extends BaseActivity {
         Map<String ,String> map = new HashMap<>();
         map.put("organizationId", KvSpUtil.INSTANCE.decodeString("jydId",""));
         map.put("year","2021");
-        map.put("month","04");
-        map.put("page",page+"");
-        map.put("pageSize","11");
+        map.put("month","10");
+        map.put("day","14");
         mState.urlPramsRequest.requestMzZcList(map);
 
     }

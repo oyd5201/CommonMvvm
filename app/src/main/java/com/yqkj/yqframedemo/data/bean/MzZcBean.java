@@ -6,6 +6,7 @@ public class MzZcBean {
     private String checkPersonDutyName;
     private String isQualifiedName;
     public String creatTime;
+    private String userName;
     public MzZcBean(){
 
     }
@@ -39,6 +40,14 @@ public class MzZcBean {
 
     public void setIsQualifiedName(String isQualifiedName) {
         this.isQualifiedName = isQualifiedName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getCreatTime() {

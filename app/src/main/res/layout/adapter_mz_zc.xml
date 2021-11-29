@@ -35,7 +35,7 @@
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:textColor="@color/black"
-            android:text="@{info.creatTime}"
+            android:text="@{info.userName}"
             android:textSize="15dp" />
 
         <TextView

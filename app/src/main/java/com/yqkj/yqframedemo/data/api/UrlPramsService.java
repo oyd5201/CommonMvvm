@@ -30,14 +30,11 @@ public interface UrlPramsService {
             @Field("password") String password
     );
 
-    @POST("zsacheck/checkData/getOrgLastCheckListByMonth")
+    @POST("zsaledger/Inspection/getMergeInspectionDetailByDate")
     @FormUrlEncoded
     Call<CommonListResponse<MzZcBean>> getList(
             @Field("organizationId") String orgId,
-            @Field("year") String year,
-            @Field("month") String month,
-            @Field("page") String page,
-            @Field("pageSize") String pageSize
+            @Field("inspectionDate") String date
 
     );
 

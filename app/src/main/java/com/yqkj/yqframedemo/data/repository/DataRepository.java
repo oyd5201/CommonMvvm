@@ -168,7 +168,7 @@ public class DataRepository {
     //每周自查列表
     public void getMzZcList(Map<String,String> map, DataResult.Result<CommonListResponse<MzZcBean>> result) {
         Call<CommonListResponse<MzZcBean>> mUserCall = retrofit.create(UrlPramsService.class).getList(map.get("organizationId"),
-                map.get("year"),map.get("month"),map.get("page"),map.get("pageSize"));
+                map.get("year")+"-"+map.get("month")+"-"+map.get("day"));
         mUserCall.enqueue(new Callback<CommonListResponse<MzZcBean>>() {
             @Override
             public void onResponse(Call<CommonListResponse<MzZcBean>> call, Response<CommonListResponse<MzZcBean>> response) {
