@@ -21,6 +21,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
+import com.yqkj.yqframedemo.data.bean.User;
 import com.yqkj.yqframedemo.domain.request.UrlPramsRequest;
 
 import java.util.List;
@@ -39,6 +40,7 @@ import java.util.List;
 public class MzZcListViewModel extends ViewModel {
 
     public final MutableLiveData<List<MzZcBean>> list = new MutableLiveData<>();
+    public final MutableLiveData<User> user = new MutableLiveData<>();
 
     public final UrlPramsRequest urlPramsRequest = new UrlPramsRequest();
 

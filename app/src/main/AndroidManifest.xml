@@ -33,6 +33,7 @@
 
         <activity android:name=".ui.page.ListActivity"/>
         <activity android:name=".ui.page.DownloadActivity"/>
+        <activity android:name=".ui.page.ListDetailActivity"/>
     </application>
 
 </manifest>
