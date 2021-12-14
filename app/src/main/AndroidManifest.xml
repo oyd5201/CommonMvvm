@@ -34,6 +34,8 @@
         <activity android:name=".ui.page.ListActivity"/>
         <activity android:name=".ui.page.DownloadActivity"/>
         <activity android:name=".ui.page.ListDetailActivity"/>
+        <activity android:name=".ui.page.KqXdActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

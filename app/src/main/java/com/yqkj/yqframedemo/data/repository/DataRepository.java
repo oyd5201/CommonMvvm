@@ -24,21 +24,22 @@ import com.kunminx.architecture.data.repository.CommonRetrofit;
 import com.kunminx.architecture.data.response.DataResult;
 import com.kunminx.architecture.data.response.ResponseStatus;
 import com.kunminx.architecture.data.response.ResultSource;
-import com.kunminx.architecture.utils.SPUtils;
 import com.yqkj.yqframedemo.data.api.UrlPramsService;
 import com.yqkj.yqframedemo.data.bean.DownloadFile;
 import com.yqkj.yqframedemo.data.bean.HttpUrl;
+import com.yqkj.yqframedemo.data.bean.KqXdJlBean;
 import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
+import com.yqkj.yqframedemo.data.bean.RlBean;
 import com.yqkj.yqframedemo.data.bean.User;
 
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -180,6 +181,51 @@ public class DataRepository {
 
             @Override
             public void onFailure(Call<CommonListResponse<MzZcBean>> call, Throwable t) {
+                result.onResult(new DataResult<>(null,
+                        new ResponseStatus("", false,t.getMessage(), ResultSource.NETWORK)));
+
+            }
+
+        });
+    }
+
+    //每周自查列表
+    public void getRlBeanList(Map<String,String> map, DataResult.Result<CommonResponse<RlBean>> result) {
+        Call<CommonResponse<RlBean>> mCall = retrofit.create(UrlPramsService.class).getRlBean(map.get("organizationId"),
+                map.get("year"),map.get("month"),map.get("ledgerType"));
+        mCall.enqueue(new Callback<CommonResponse<RlBean>>() {
+            @Override
+            public void onResponse(Call<CommonResponse<RlBean>> call, Response<CommonResponse<RlBean>> response) {
+                ResponseStatus responseStatus = new ResponseStatus(
+                        String.valueOf(response.body().code), response.isSuccessful(),String.valueOf(response.body().msg), ResultSource.NETWORK);
+                result.onResult(new DataResult<>(response.body(), responseStatus));
+
+            }
+
+            @Override
+            public void onFailure(Call<CommonResponse<RlBean>> call, Throwable t) {
+                result.onResult(new DataResult<>(null,
+                        new ResponseStatus("", false,t.getMessage(), ResultSource.NETWORK)));
+
+            }
+
+        });
+    }
+    //空气消毒列表
+    public void getKqXdList(Map<String,String> map, DataResult.Result<CommonResponse<List<KqXdJlBean>>> result) {
+        Call<CommonResponse<List<KqXdJlBean>>> mCall = retrofit.create(UrlPramsService.class).getKqXdList(map.get("organizationId"),
+                map.get("year"),map.get("month"),map.get("day"));
+        mCall.enqueue(new Callback<CommonResponse<List<KqXdJlBean>>>() {
+            @Override
+            public void onResponse(Call<CommonResponse<List<KqXdJlBean>>> call, Response<CommonResponse<List<KqXdJlBean>>> response) {
+                ResponseStatus responseStatus = new ResponseStatus(
+                        String.valueOf(response.body().code), response.isSuccessful(),String.valueOf(response.body().msg), ResultSource.NETWORK);
+                result.onResult(new DataResult<>(response.body(), responseStatus));
+
+            }
+
+            @Override
+            public void onFailure(Call<CommonResponse<List<KqXdJlBean>>> call, Throwable t) {
                 result.onResult(new DataResult<>(null,
                         new ResponseStatus("", false,t.getMessage(), ResultSource.NETWORK)));
 

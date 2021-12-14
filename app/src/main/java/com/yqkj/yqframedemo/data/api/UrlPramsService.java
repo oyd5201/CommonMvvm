@@ -3,8 +3,12 @@ package com.yqkj.yqframedemo.data.api;
 import com.kunminx.architecture.data.repository.CommonListResponse;
 import com.kunminx.architecture.data.repository.CommonResponse;
 import com.yqkj.yqframedemo.data.bean.HttpUrl;
+import com.yqkj.yqframedemo.data.bean.KqXdJlBean;
 import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
+import com.yqkj.yqframedemo.data.bean.RlBean;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -35,6 +39,26 @@ public interface UrlPramsService {
     Call<CommonListResponse<MzZcBean>> getList(
             @Field("organizationId") String orgId,
             @Field("inspectionDate") String date
+
+    );
+    @POST("zsaledger/ledger/homePage/getLedgerCalendar")
+    @FormUrlEncoded
+    Call<CommonResponse<RlBean>> getRlBean(
+            @Field("organizationId") String orgId,
+            @Field("year") String year,
+            @Field("month") String month,
+            @Field("ledgerType") String ledgerType
+
+
+    );
+    @POST("zsaledger/dftionAir/selectDftionAirListByDay")
+    @FormUrlEncoded
+    Call<CommonResponse<List<KqXdJlBean>>> getKqXdList(
+            @Field("organizationId") String orgId,
+            @Field("year") String year,
+            @Field("month") String month,
+            @Field("day") String day
+
 
     );
 

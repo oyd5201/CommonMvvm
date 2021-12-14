@@ -28,13 +28,16 @@ import com.kunminx.architecture.domain.request.BaseRequest;
 import com.kunminx.architecture.ui.callback.ProtectedUnPeekLiveData;
 import com.kunminx.architecture.ui.callback.UnPeekLiveData;
 import com.yqkj.yqframedemo.data.bean.HttpUrl;
+import com.yqkj.yqframedemo.data.bean.KqXdJlBean;
 import com.yqkj.yqframedemo.data.bean.LoginUserBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
+import com.yqkj.yqframedemo.data.bean.RlBean;
 import com.yqkj.yqframedemo.data.bean.User;
 import com.yqkj.yqframedemo.data.repository.DataRepository;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,7 +54,7 @@ import java.util.Map;
  * Create by oyd at 2021/11/22
  */
 public class UrlPramsRequest extends BaseRequest
-    implements DefaultLifecycleObserver {
+        implements DefaultLifecycleObserver {
 
     //TODO tip：👆👆👆 让 accountRequest 可观察页面生命周期，
     // 从而在页面即将退出、且登录请求由于网络延迟尚未完成时，
@@ -60,6 +63,8 @@ public class UrlPramsRequest extends BaseRequest
     private final UnPeekLiveData<DataResult<CommonResponse<LoginUserBean>>> tokenLiveData = new UnPeekLiveData<>();
     private final UnPeekLiveData<DataResult<CommonResponse<HttpUrl>>> httpUrlLiveData = new UnPeekLiveData<>();
     private final UnPeekLiveData<DataResult<CommonListResponse<MzZcBean>>> mzZcLiveData = new UnPeekLiveData<>();
+    private final UnPeekLiveData<DataResult<CommonResponse<RlBean>>> rlBeanLiveData = new UnPeekLiveData<>();
+    private final UnPeekLiveData<DataResult<CommonResponse<List<KqXdJlBean>>>> kqXdLiveData = new UnPeekLiveData<>();
 
     //TODO tip 2：向 ui 层提供的 request LiveData，使用 "父类的 LiveData" 而不是 "Mutable 的 LiveData"，
     //如此达成了 "唯一可信源" 的设计，也即通过访问控制权限实现 "读写分离"，
@@ -78,6 +83,7 @@ public class UrlPramsRequest extends BaseRequest
 
         return tokenLiveData;
     }
+
     public ProtectedUnPeekLiveData<DataResult<CommonResponse<HttpUrl>>> getHttpUrlLiveData() {
 
         //TODO tip 3：与此同时，为了方便语义上的理解，故而直接将 DataResult 作为 LiveData value 回推给 UI 层，
@@ -89,17 +95,23 @@ public class UrlPramsRequest extends BaseRequest
 
         return httpUrlLiveData;
     }
+
     public ProtectedUnPeekLiveData<DataResult<CommonListResponse<MzZcBean>>> getMzZcLiveData() {
-
-        //TODO tip 3：与此同时，为了方便语义上的理解，故而直接将 DataResult 作为 LiveData value 回推给 UI 层，
-        //而不是将 DataResult 的泛型实体拆下来单独回推，如此
-        //一方面使 UI 层有机会基于 DataResult 的 responseStatus 来分别处理 请求成功或失败的情况下的 UI 表现，
-        //另一方面从语义上强调了 该数据是请求得来的结果，是只读的，与 "可变状态" 形成明确的区分，
-        //从而方便团队开发人员自然而然遵循 "唯一可信源"/"单向数据流" 的开发理念，规避消息同步一致性等不可预期的错误。
-
 
         return mzZcLiveData;
     }
+
+    public ProtectedUnPeekLiveData<DataResult<CommonResponse<RlBean>>> getRlBeanLiveData() {
+
+        return rlBeanLiveData;
+    }
+
+    public ProtectedUnPeekLiveData<DataResult<CommonResponse<List<KqXdJlBean>>>> getKqXdLiveData() {
+
+        return kqXdLiveData;
+    }
+
+
     //登录页面调用
     public void requestLogin(User user) {
 
@@ -113,16 +125,28 @@ public class UrlPramsRequest extends BaseRequest
     }
 
     //登录页面调用
-    public void requestHttpUrl(String loginName){
+    public void requestHttpUrl(String loginName) {
         DataRepository.getInstance().getHttpUrl(loginName, httpUrlLiveData::postValue);
     }
+
     //登录页面调用
     private void cancelLogin() {
         DataRepository.getInstance().cancelLogin();
     }
-    //登录页面调用
-    public void requestMzZcList(Map<String,String> map){
-        DataRepository.getInstance().getMzZcList(map,mzZcLiveData::postValue);
+
+    //列表页面
+    public void requestMzZcList(Map<String, String> map) {
+        DataRepository.getInstance().getMzZcList(map, mzZcLiveData::postValue);
+    }
+
+    //空气消毒页面
+    public void requestRlBeanList(Map<String, String> map) {
+        DataRepository.getInstance().getRlBeanList(map, rlBeanLiveData::postValue);
+    }
+
+    //空气消毒页面
+    public void requestKqXdList(Map<String, String> map) {
+        DataRepository.getInstance().getKqXdList(map, kqXdLiveData::postValue);
     }
 
 

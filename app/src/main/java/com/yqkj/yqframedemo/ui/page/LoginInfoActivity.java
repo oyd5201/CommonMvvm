@@ -93,6 +93,8 @@ public class LoginInfoActivity extends BaseActivity {
 
             KvSpUtil.INSTANCE.encode("token", loginUserBean.getUser().getToken());//TOKEN
             KvSpUtil.INSTANCE.encode( "id", loginUserBean.getUser().getId());// 用户资料id
+            KvSpUtil.INSTANCE.encode("user", mState.name.get());//TOKEN
+            KvSpUtil.INSTANCE.encode("password", mState.password.get());// 用户资料id
             if (loginUserBean.getOrganizations().size() > 0) {
 
                 //企业ID
@@ -101,9 +103,12 @@ public class LoginInfoActivity extends BaseActivity {
                 ToastUtils.showShortToast(this, "尚未关联相关企业");
                 return;
             }
+
             //TODO 登录成功后进行的下一步操作...
-            startActivity(new Intent(this,ListActivity.class));
+            startActivity(new Intent(this,KqXdActivity.class));
         });
+        mState.name.set( KvSpUtil.INSTANCE.decodeString("user",""));
+        mState.password.set( KvSpUtil.INSTANCE.decodeString("password",""));
     }
 
 

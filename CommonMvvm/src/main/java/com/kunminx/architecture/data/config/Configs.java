@@ -36,6 +36,9 @@ public class Configs {
 
     public static final String TOKEN = "token";
 
+    //查看图片地址
+    public static final String RESOURCE_PREFIX = "http://www.hangzhouyq.cn:85/";
+
     /**
      * 配置网络请求头
      */

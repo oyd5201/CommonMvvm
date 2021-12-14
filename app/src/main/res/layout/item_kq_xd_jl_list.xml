@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="info"
+            type="com.yqkj.yqframedemo.data.bean.KqXdJlBean" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:gravity="center">
+
+
+            <com.yqkj.yqframedemo.ui.widgets.ScrollForeverTextView
+                android:id="@+id/tv_xd_rq"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="#CAE4FF"
+                android:text="@={info.dftionTime}"
+                android:textSize="7dp" />
+
+
+            <com.yqkj.yqframedemo.ui.widgets.ScrollForeverTextView
+                android:id="@+id/tv_qz_sj"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="#CAE4FF"
+                android:text='@{info.beginPoint +"-"+ info.endPoint}'
+                android:textSize="7dp" />
+
+
+            <com.yqkj.yqframedemo.ui.widgets.ScrollForeverTextView
+                android:id="@+id/tv_xd_sc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="#CAE4FF"
+                android:text='@{info.timeLong +"min"}'
+                android:textSize="7dp" />
+
+            <com.yqkj.yqframedemo.ui.widgets.ScrollForeverTextView
+                android:id="@+id/tv_xd_cc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="#CAE4FF"
+                android:text="@={info.typeName}"
+                android:textSize="7dp" />
+
+            <com.yqkj.yqframedemo.ui.widgets.ScrollForeverTextView
+                android:id="@+id/tv_gz_zrr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="@={info.workPersonName}"
+                android:textColor="#CAE4FF"
+                android:textSize="7dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="26dp"
+                    android:layout_height="26dp">
+
+                    <ImageView
+                        android:id="@+id/img_photo"
+                        android:layout_width="22.5dp"
+                        android:layout_height="22.5dp"
+                        android:layout_centerInParent="true"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_sp_empty" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

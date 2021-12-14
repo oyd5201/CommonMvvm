@@ -8,4 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00ffffff</color>
+
+    <color name="helath_text_key">#748091</color>
+    <color name="helath_text_value">#1E2D47</color>
+    <color name="color_666666">#666666</color>
+
+    <color name="linexy">#2869AA</color>
+
+    <color name="chart">#25D8EF</color>
+    <color name="color_11E1FF">#11E1FF</color>
+    <color name="color_CRDFFB">#C4DFFB</color>
+    <color name="color_085BB5">#085BB5</color>
 </resources>

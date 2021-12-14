@@ -13,33 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.yqkj.yqframedemo.ui.page.adapter
 
-package com.yqkj.yqframedemo.ui.page.adapter;
-
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.kunminx.binding_recyclerview.adapter.SimpleDataBindingAdapter;
-
-import com.yqkj.yqframedemo.R;
-import com.yqkj.yqframedemo.data.bean.MzZcBean;
-import com.yqkj.yqframedemo.databinding.AdapterMzZcBinding;
+import android.content.Context
+import com.kunminx.binding_recyclerview.adapter.SimpleDataBindingAdapter
+import com.yqkj.yqframedemo.data.bean.MzZcBean
+import com.yqkj.yqframedemo.R
+import com.yqkj.yqframedemo.ui.page.adapter.DiffUtils
+import androidx.recyclerview.widget.RecyclerView
+import com.yqkj.yqframedemo.databinding.AdapterMzZcBinding
 
 /**
  * Create by oyd at 2021/11/23
  */
-public class ListAdapter extends SimpleDataBindingAdapter<MzZcBean, AdapterMzZcBinding> {
+class ListAdapter(context: Context?) : SimpleDataBindingAdapter<MzZcBean?, AdapterMzZcBinding?>(context, R.layout.adapter_mz_zc, DiffUtils.getInstance().libraryInfoItemCallback) {
 
-    public ListAdapter(Context context) {
-        super(context, R.layout.adapter_mz_zc, DiffUtils.getInstance().getLibraryInfoItemCallback());
-
-    }
-
-    @Override
-    protected void onBindItem(AdapterMzZcBinding binding, MzZcBean item, RecyclerView.ViewHolder holder) {
-        binding.setInfo(item);
+    override fun onBindItem(binding: AdapterMzZcBinding?, item: MzZcBean?, holder: RecyclerView.ViewHolder?) {
+        binding?.info = item
     }
 }

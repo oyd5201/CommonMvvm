@@ -14,10 +14,15 @@ import androidx.core.content.FileProvider;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -359,5 +364,36 @@ public final class Utils {
             Utils.init(getContext());
             return true;
         }
+    }
+    //判断年月日是星期几 返回1是星期天 以此类推
+    public static int getDayofWeek(String dateTime) {
+        Calendar cal = Calendar.getInstance();
+        if (dateTime.equals("")) {
+            cal.setTime(new Date(System.currentTimeMillis()));
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date date;
+            try {
+                date = sdf.parse(dateTime);
+            } catch (ParseException e) {
+                date = null;
+                e.printStackTrace();
+            }
+            if (date != null) {
+                cal.setTime(new Date(date.getTime()));
+            }
+        }
+        return cal.get(Calendar.DAY_OF_WEEK);
+    }
+
+
+    //判断某年某月有多少天
+    public static int getMonthOfCounts(int year,int month){
+        Calendar c = Calendar.getInstance();
+        c.set(year, month, 0); //输入类型为int类型
+
+        int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+        return dayOfMonth;
+
     }
 }

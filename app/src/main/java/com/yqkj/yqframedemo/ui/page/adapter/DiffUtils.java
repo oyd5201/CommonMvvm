@@ -19,7 +19,9 @@ package com.yqkj.yqframedemo.ui.page.adapter;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
+import com.yqkj.yqframedemo.data.bean.KqXdJlBean;
 import com.yqkj.yqframedemo.data.bean.MzZcBean;
+import com.yqkj.yqframedemo.data.bean.RlBean;
 
 /**
  * Create by oyd at 2021/11/22
@@ -27,6 +29,8 @@ import com.yqkj.yqframedemo.data.bean.MzZcBean;
 public class DiffUtils {
 
     private DiffUtil.ItemCallback<MzZcBean> mLibraryInfoItemCallback;
+    private DiffUtil.ItemCallback<RlBean.RlBeans> rlBeanItemCallback;
+    private DiffUtil.ItemCallback<KqXdJlBean> kqXdJlBeanItemCallback;
 
     private DiffUtils() {
     }
@@ -52,6 +56,40 @@ public class DiffUtils {
             };
         }
         return mLibraryInfoItemCallback;
+    }
+
+    public DiffUtil.ItemCallback<RlBean.RlBeans> getRlBeanItemCallback() {
+        if (rlBeanItemCallback == null) {
+            rlBeanItemCallback = new DiffUtil.ItemCallback<RlBean.RlBeans>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull RlBean.RlBeans oldItem, @NonNull RlBean.RlBeans newItem) {
+                    return oldItem.equals(newItem);
+                }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull RlBean.RlBeans oldItem, @NonNull RlBean.RlBeans newItem) {
+                    return oldItem.getLedgerDate().equals(newItem.getLedgerDate());
+                }
+            };
+        }
+        return rlBeanItemCallback;
+    }
+
+    public DiffUtil.ItemCallback<KqXdJlBean> getKqXdJlBeanItemCallback() {
+        if (kqXdJlBeanItemCallback == null) {
+            kqXdJlBeanItemCallback = new DiffUtil.ItemCallback<KqXdJlBean>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull KqXdJlBean oldItem, @NonNull KqXdJlBean newItem) {
+                    return oldItem.equals(newItem);
+                }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull KqXdJlBean oldItem, @NonNull KqXdJlBean newItem) {
+                    return oldItem.getId().equals(newItem.getId());
+                }
+            };
+        }
+        return kqXdJlBeanItemCallback;
     }
 
 }
